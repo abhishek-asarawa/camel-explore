@@ -8,8 +8,10 @@ import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.support.DefaultMessage;
 // import org.apache.camel.util.json.JsonObject;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.RestController;
 
 @Component
+@RestController
 public class RestJavaDsl extends RouteBuilder {
 
     @Override

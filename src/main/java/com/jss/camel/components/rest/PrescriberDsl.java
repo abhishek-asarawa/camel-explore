@@ -5,6 +5,7 @@ import org.apache.camel.model.rest.RestBindingMode;
 import org.apache.camel.support.DefaultMessage;
 // import org.apache.camel.support.DefaultMessage;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.RestController;
 
 // import static org.apache.camel.model.rest.RestParamType.body;
 
@@ -19,6 +20,7 @@ import org.apache.camel.Exchange;
 import org.apache.camel.Message;
 
 @Component
+@RestController
 public class PrescriberDsl extends RouteBuilder {
 
     private PrescribersDto prescribers = new PrescribersDto();
