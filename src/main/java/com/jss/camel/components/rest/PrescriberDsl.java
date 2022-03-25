@@ -37,12 +37,19 @@ public class PrescriberDsl extends RouteBuilder {
                 .to("direct:save-prescriber")
                 .get("prescribers")
                 .to("direct:all-prescriber");
+        // .get("push-prescriber")
+        // .to("direct:push-prescriber");
 
         from("direct:save-prescriber")
                 .process(this::savePrescriber);
 
         from("direct:all-prescriber")
                 .process(this::getPrescribers);
+
+        // from("direct:push-prescriber")
+        // .setBody(simple("${null}"))
+        // .toD("http://localhost:8082/prescriber/1" +
+        // "?httpMethod=GET&bridgeEndpoint=true");
     }
 
     public void savePrescriber(Exchange exchange) {

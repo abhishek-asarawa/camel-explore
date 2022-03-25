@@ -22,6 +22,12 @@ public class RestJavaDsl extends RouteBuilder {
         from("rest:get:/data")
                 .setBody(simple("${null}"))
                 .toD("https://jsonplaceholder.typicode.com/posts" + "?httpMethod=GET&bridgeEndpoint=true");
+
+        from("rest:get:dsl/push-prescriber/{id}")
+                .setBody(simple("${null}"))
+                .toD("http://localhost:8082/prescriber/${header.id}" + "?httpMethod=GET&bridgeEndpoint=true")
+                .toD("http://localhost:8081/prescriber" + "?httpMethod=POST&bridgeEndpoint=true");
+
     }
 
     private void greetings(Exchange exchange) {
